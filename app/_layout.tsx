@@ -3,12 +3,14 @@
 // (global dark-mode context) and defines the root Stack, which hosts the
 // (tabs) group and the first-run onboarding screen. New users are
 // redirected to /onboarding until settings.onboardingComplete is true.
+// The opening intro (SplashIntro) is drawn on top while the app loads underneath.
 
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Redirect } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { View, ActivityIndicator } from "react-native";
 import { ThemeProvider, useAppTheme } from "../context/ThemeContext";
+import SplashIntro from "../components/SplashIntro";
 
 function RootStack() {
   const { isDark, theme, settings, settingsLoading } = useAppTheme();
@@ -46,9 +48,14 @@ function RootStack() {
 }
 
 export default function RootLayout() {
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
     <ThemeProvider>
-      <RootStack />
+      <View style={{ flex: 1 }}>
+        <RootStack />
+        {showIntro ? <SplashIntro onFinish={() => setShowIntro(false)} /> : null}
+      </View>
     </ThemeProvider>
   );
 }
