@@ -37,9 +37,6 @@
     },
     "plugins": [
       "expo-router"
-    ],
-    "experiments": {
-      "baseUrl": "/FitPro"
-    }
+    ]
   }
 }

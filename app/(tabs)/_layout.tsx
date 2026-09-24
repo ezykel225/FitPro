@@ -34,7 +34,7 @@ export default function TabsLayout() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: 4,
+          paddingTop: 0,
           gap: 2,
         },
         tabBarIconStyle: {
@@ -42,6 +42,9 @@ export default function TabsLayout() {
         },
         tabBarLabelStyle: {
           fontSize: 10,
+          lineHeight: 14,
+          // Without this the label gets squeezed to ~11px and clips descenders ("Proaress").
+          flexShrink: 0,
           fontWeight: "600",
           marginTop: 0,
         },
