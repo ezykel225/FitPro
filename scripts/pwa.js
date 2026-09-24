@@ -16,8 +16,8 @@ const manifest = {
   scope: `${base}/`,
   display: "standalone",
   orientation: "portrait",
-  background_color: "#0F172A",
-  theme_color: "#0F172A",
+  background_color: "#0B0F19",
+  theme_color: "#0B0F19",
   icons: [{ src: `${base}/icon-1024.png`, sizes: "1024x1024", type: "image/png", purpose: "any" }],
 };
 fs.writeFileSync(path.join(dist, "manifest.json"), JSON.stringify(manifest, null, 2));

@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0F172A"
+      "backgroundColor": "#0B0F19"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -22,7 +22,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0F172A"
+        "backgroundColor": "#3B82F6"
       },
       "package": "com.fitpro.lazyfitness"
     },
@@ -31,8 +31,8 @@
       "output": "single",
       "name": "FitPro",
       "shortName": "FitPro",
-      "themeColor": "#0F172A",
-      "backgroundColor": "#0F172A",
+      "themeColor": "#0B0F19",
+      "backgroundColor": "#0B0F19",
       "favicon": "./assets/icon.png"
     },
     "plugins": [
