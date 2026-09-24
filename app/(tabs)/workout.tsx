@@ -4,7 +4,8 @@
 // mark exercises complete, run a rest timer, and log the session.
 
 import React, { useEffect } from "react";
-import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator, Alert } from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator } from "react-native";
+import { showAlert } from "../../services/alert";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
@@ -49,7 +50,7 @@ export default function WorkoutScreen() {
 
   useEffect(() => {
     if (recentlyUnlocked) {
-      Alert.alert("Badge Unlocked! " + recentlyUnlocked.emoji, recentlyUnlocked.title, [
+      showAlert("Badge Unlocked! " + recentlyUnlocked.emoji, recentlyUnlocked.title, [
         { text: "Nice!", onPress: clearRecentlyUnlocked },
       ]);
     }
@@ -62,7 +63,7 @@ export default function WorkoutScreen() {
       totalWorkoutsCompleted: totalWorkoutsCompleted + (completionPercent === 100 ? 1 : 0),
       totalMealsLogged: todaysMeals.length,
     });
-    Alert.alert("Workout Logged", "Nice work. Your progress has been saved.");
+    showAlert("Workout Logged", "Nice work. Your progress has been saved.");
   };
 
   if (loading || !selectedDay) {

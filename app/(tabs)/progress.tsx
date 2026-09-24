@@ -13,8 +13,8 @@ import {
   StyleSheet,
   Dimensions,
   ActivityIndicator,
-  Alert,
 } from "react-native";
+import { showAlert } from "../../services/alert";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LineChart } from "react-native-chart-kit";
 import Header from "../../components/Header";
@@ -48,7 +48,7 @@ export default function ProgressScreen() {
   const handleLogWeight = async () => {
     const weight = parseFloat(weightInput);
     if (Number.isNaN(weight) || weight <= 0) {
-      Alert.alert("Invalid weight", "Please enter a valid weight in kg.");
+      showAlert("Invalid weight", "Please enter a valid weight in kg.");
       return;
     }
     await addWeightEntry(weight);

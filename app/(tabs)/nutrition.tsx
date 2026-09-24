@@ -12,8 +12,8 @@ import {
   ScrollView,
   StyleSheet,
   ActivityIndicator,
-  Alert,
 } from "react-native";
+import { showAlert } from "../../services/alert";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import Header from "../../components/Header";
@@ -74,7 +74,7 @@ export default function NutritionScreen() {
   const handleAddMeal = async () => {
     const caloriesNum = parseInt(calories, 10);
     if (!name.trim() || Number.isNaN(caloriesNum)) {
-      Alert.alert("Missing info", "Please enter at least a meal name and calories.");
+      showAlert("Missing info", "Please enter at least a meal name and calories.");
       return;
     }
     await addMeal({

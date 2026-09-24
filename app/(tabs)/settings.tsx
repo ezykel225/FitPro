@@ -13,9 +13,9 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
-  Alert,
   ActivityIndicator,
 } from "react-native";
+import { showAlert } from "../../services/alert";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { Feather } from "@expo/vector-icons";
@@ -91,7 +91,7 @@ export default function SettingsScreen() {
       targetWeightKg: Number.isNaN(target) ? profile.targetWeightKg : target,
       workoutsPerWeek,
     });
-    Alert.alert("Saved", "Your profile has been updated.");
+    showAlert("Saved", "Your profile has been updated.");
   };
 
   const handleRecalculateGoals = async () => {
@@ -107,7 +107,7 @@ export default function SettingsScreen() {
       goals: selectedGoals,
     });
     await updateGoals(next);
-    Alert.alert(
+    showAlert(
       "Goals recalculated",
       `Calories: ${next.calorieGoal} kcal · Protein: ${next.proteinGoal}g · Carbs: ${next.carbGoal}g · Fats: ${next.fatGoal}g`
     );
@@ -119,11 +119,11 @@ export default function SettingsScreen() {
       ...goals,
       calorieGoal: Number.isNaN(calGoal) ? goals.calorieGoal : calGoal,
     });
-    Alert.alert("Saved", "Your nutrition goal has been updated.");
+    showAlert("Saved", "Your nutrition goal has been updated.");
   };
 
   const handleResetData = () => {
-    Alert.alert(
+    showAlert(
       "Reset all data?",
       "This will permanently erase workouts, meals, weight logs, and badges, and send you back through setup. This cannot be undone.",
       [

@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#0F172A"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.fitpro.lazyfitness"
@@ -25,8 +27,19 @@
       "package": "com.fitpro.lazyfitness"
     },
     "web": {
-      "bundler": "metro"
+      "bundler": "metro",
+      "output": "single",
+      "name": "FitPro",
+      "shortName": "FitPro",
+      "themeColor": "#0F172A",
+      "backgroundColor": "#0F172A",
+      "favicon": "./assets/icon.png"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "baseUrl": "/FitPro"
+    }
   }
 }
