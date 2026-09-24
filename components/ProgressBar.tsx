@@ -15,7 +15,7 @@ interface ProgressBarProps {
 
 export default function ProgressBar({ percent, label, color }: ProgressBarProps) {
   const { theme } = useAppTheme();
-  const clamped = Math.max(0, Math.min(100, percent));
+  const clamped = Math.round(Math.max(0, Math.min(100, percent)));
   const barColor = color ?? theme.primary;
 
   return (

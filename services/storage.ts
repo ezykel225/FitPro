@@ -8,10 +8,17 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const STORAGE_KEYS = {
-  WORKOUT_DAYS: "fitpro:workoutDays",
+  WORKOUT_DAYS: "fitpro:workoutDays", // legacy (pre-PPL plan), still cleared on reset
+  WORKOUT_SESSIONS: "fitpro:workoutSessions",
+  WORKOUT_DRAFTS: "fitpro:workoutDrafts",
+  EXERCISE_SWAPS: "fitpro:exerciseSwaps",
+  PROGRAM: "fitpro:program",
+  ACTIVITIES: "fitpro:activities",
+  ACTIVE_ACTIVITY: "fitpro:activeActivity",
   WORKOUT_LOG: "fitpro:workoutLog",
   MEALS: "fitpro:meals",
   NUTRITION_GOALS: "fitpro:nutritionGoals",
+  NUTRITION_PLAN_APPLIED: "fitpro:nutritionPlanApplied",
   WEIGHT_LOG: "fitpro:weightLog",
   BADGES: "fitpro:badges",
   PROFILE: "fitpro:profile",

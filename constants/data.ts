@@ -2,7 +2,7 @@
 // Static seed data: motivational quotes and default workout templates.
 // Kept separate from logic so it's easy to edit/extend without touching hooks.
 
-import { WorkoutDay, Badge, NutritionGoals, SuggestedMeal, FitnessGoal } from "./types";
+import { Badge, NutritionGoals, SuggestedMeal, FitnessGoal } from "./types";
 
 export const MOTIVATIONAL_QUOTES: string[] = [
   "You don't have to be great to start, but you have to start to be great.",
@@ -19,64 +19,6 @@ export function getQuoteForToday(): string {
   const dayIndex = new Date().getDate() % MOTIVATIONAL_QUOTES.length;
   return MOTIVATIONAL_QUOTES[dayIndex];
 }
-
-export const DEFAULT_WORKOUTS: WorkoutDay[] = [
-  {
-    key: "push",
-    label: "Push Day",
-    emoji: "💪",
-    exercises: [
-      { id: "push-1", name: "Push-Ups", sets: 3, reps: "10-15", restSeconds: 60, completed: false },
-      { id: "push-2", name: "Shoulder Press (dumbbell)", sets: 3, reps: "10-12", restSeconds: 60, completed: false },
-      { id: "push-3", name: "Tricep Dips", sets: 3, reps: "8-12", restSeconds: 45, completed: false },
-      { id: "push-4", name: "Incline Dumbbell Press", sets: 3, reps: "10-12", restSeconds: 60, completed: false },
-    ],
-  },
-  {
-    key: "pull",
-    label: "Pull Day",
-    emoji: "🏋️",
-    exercises: [
-      { id: "pull-1", name: "Bent-Over Rows (dumbbell)", sets: 3, reps: "10-12", restSeconds: 60, completed: false },
-      { id: "pull-2", name: "Bicep Curls", sets: 3, reps: "10-12", restSeconds: 45, completed: false },
-      { id: "pull-3", name: "Superman Holds", sets: 3, reps: "20-30s", restSeconds: 45, completed: false },
-      { id: "pull-4", name: "Face Pulls (band)", sets: 3, reps: "12-15", restSeconds: 45, completed: false },
-    ],
-  },
-  {
-    key: "legs",
-    label: "Leg Day",
-    emoji: "🦵",
-    exercises: [
-      { id: "legs-1", name: "Bodyweight Squats", sets: 4, reps: "12-15", restSeconds: 60, completed: false },
-      { id: "legs-2", name: "Lunges", sets: 3, reps: "10 each leg", restSeconds: 60, completed: false },
-      { id: "legs-3", name: "Glute Bridges", sets: 3, reps: "12-15", restSeconds: 45, completed: false },
-      { id: "legs-4", name: "Calf Raises", sets: 3, reps: "15-20", restSeconds: 30, completed: false },
-    ],
-  },
-  {
-    key: "upper",
-    label: "Upper Body Day",
-    emoji: "🔥",
-    exercises: [
-      { id: "upper-1", name: "Push-Ups", sets: 3, reps: "10-15", restSeconds: 60, completed: false },
-      { id: "upper-2", name: "Dumbbell Rows", sets: 3, reps: "10-12", restSeconds: 60, completed: false },
-      { id: "upper-3", name: "Lateral Raises", sets: 3, reps: "12-15", restSeconds: 45, completed: false },
-      { id: "upper-4", name: "Plank", sets: 3, reps: "30-45s", restSeconds: 45, completed: false },
-    ],
-  },
-  {
-    key: "fullBody",
-    label: "Full Body Day",
-    emoji: "⚡",
-    exercises: [
-      { id: "full-1", name: "Squats", sets: 3, reps: "12-15", restSeconds: 60, completed: false },
-      { id: "full-2", name: "Push-Ups", sets: 3, reps: "10-15", restSeconds: 60, completed: false },
-      { id: "full-3", name: "Dumbbell Rows", sets: 3, reps: "10-12", restSeconds: 60, completed: false },
-      { id: "full-4", name: "Plank", sets: 3, reps: "30-45s", restSeconds: 45, completed: false },
-    ],
-  },
-];
 
 export const DEFAULT_NUTRITION_GOALS: NutritionGoals = {
   calorieGoal: 2200,

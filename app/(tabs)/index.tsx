@@ -21,7 +21,7 @@ import { spacing, radius, gradients } from "../../constants/theme";
 
 export default function HomeScreen() {
   const { theme } = useAppTheme();
-  const { completionPercent, streak, loading: workoutLoading } = useWorkout();
+  const { todayCompletionPercent: completionPercent, streak, loading: workoutLoading } = useWorkout();
   const { todaysTotals, goals, loading: nutritionLoading } = useNutrition();
 
   const loading = workoutLoading || nutritionLoading;

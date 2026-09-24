@@ -5,7 +5,9 @@
 // whenever the user finishes a workout or logs a meal.
 
 import React from "react";
-import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator, Pressable } from "react-native";
+import { useRouter } from "expo-router";
+import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
@@ -17,6 +19,7 @@ import { spacing, radius } from "../../constants/theme";
 
 export default function AchievementsScreen() {
   const { theme } = useAppTheme();
+  const router = useRouter();
   const { loading, badges, unlockedCount } = useAchievements();
   const { streak, totalWorkoutsCompleted } = useWorkout();
 
@@ -31,7 +34,19 @@ export default function AchievementsScreen() {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <Header title="Achievements" subtitle="Proof that you actually did the thing." />
+        <Header
+          title="Achievements"
+          subtitle="Proof that you actually did the thing."
+          rightSlot={
+            <Pressable
+              onPress={() => (router.canGoBack() ? router.back() : router.replace("/progress"))}
+              style={{ padding: 8 }}
+              accessibilityLabel="Close"
+            >
+              <Feather name="x" size={22} color={theme.subtext} />
+            </Pressable>
+          }
+        />
 
         <View style={styles.statsRow}>
           <StatPill icon="award" accentColor={theme.success} value={`${unlockedCount}/${badges.length}`} label="Badges" />

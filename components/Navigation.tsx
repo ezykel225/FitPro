@@ -15,7 +15,7 @@ interface QuickAction {
   label: string;
   icon: React.ComponentProps<typeof Feather>["name"];
   color: string;
-  route: "/workout" | "/nutrition" | "/progress" | "/achievements" | "/settings";
+  route: "/workout" | "/run" | "/nutrition" | "/progress" | "/achievements" | "/settings";
 }
 
 export default function Navigation() {
@@ -25,7 +25,7 @@ export default function Navigation() {
   const actions: QuickAction[] = [
     { label: "Start Workout", icon: "activity", color: theme.primary, route: "/workout" },
     { label: "Log Meal", icon: "coffee", color: theme.warning, route: "/nutrition" },
-    { label: "Check Progress", icon: "trending-up", color: theme.info, route: "/progress" },
+    { label: "Walk / Run", icon: "navigation", color: "#FC4C02", route: "/run" },
     { label: "Achievements", icon: "award", color: theme.success, route: "/achievements" },
   ];
 

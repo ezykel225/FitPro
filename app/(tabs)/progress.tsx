@@ -17,6 +17,8 @@ import {
 import { showAlert } from "../../services/alert";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LineChart } from "react-native-chart-kit";
+import { useRouter } from "expo-router";
+import { Feather } from "@expo/vector-icons";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
 import ProgressBar from "../../components/ProgressBar";
@@ -35,6 +37,7 @@ const GOAL_LABELS: Record<FitnessGoal, string> = {
 
 export default function ProgressScreen() {
   const { theme } = useAppTheme();
+  const router = useRouter();
   const {
     loading,
     chartData,
@@ -69,7 +72,20 @@ export default function ProgressScreen() {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <Header title="Progress" subtitle="The scale doesn't lie, but it also doesn't judge." />
+        <Header
+          title="Progress"
+          subtitle="The scale doesn't lie, but it also doesn't judge."
+          rightSlot={
+            <Pressable
+              onPress={() => router.push("/achievements")}
+              style={[styles.awardsButton, { borderColor: theme.border, backgroundColor: theme.surface }]}
+              accessibilityLabel="Achievements"
+            >
+              <Feather name="award" size={16} color={theme.success} />
+              <Text style={[styles.awardsText, { color: theme.text }]}>Awards</Text>
+            </Pressable>
+          }
+        />
 
         <Card>
           <Text style={[styles.cardTitle, { color: theme.text }]}>Weight Trend (last 7 logs)</Text>
@@ -155,6 +171,16 @@ export default function ProgressScreen() {
 }
 
 const styles = StyleSheet.create({
+  awardsButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    borderWidth: 1,
+    borderRadius: radius.pill,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  awardsText: { fontSize: 13, fontWeight: "700" },
   container: { flex: 1 },
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   content: { padding: spacing.md, paddingBottom: spacing.xl },

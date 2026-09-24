@@ -1,5 +1,5 @@
 // app/(tabs)/_layout.tsx
-// Defines the bottom tab bar for the six main screens using Expo Router's
+// Defines the bottom tab bar for the six main screens (Awards is opened from Progress) using Expo Router's
 // file-based tabs. Icons use Feather (via @expo/vector-icons) instead of
 // emoji so the bar reads as a real navigation control, not a sticker strip.
 
@@ -63,6 +63,10 @@ export default function TabsLayout() {
         options={{ title: "Workout", tabBarIcon: ({ color }) => <TabIcon name="activity" color={color} /> }}
       />
       <Tabs.Screen
+        name="run"
+        options={{ title: "Run", tabBarIcon: ({ color }) => <TabIcon name="navigation" color={color} /> }}
+      />
+      <Tabs.Screen
         name="nutrition"
         options={{ title: "Nutrition", tabBarIcon: ({ color }) => <TabIcon name="coffee" color={color} /> }}
       />
@@ -72,7 +76,8 @@ export default function TabsLayout() {
       />
       <Tabs.Screen
         name="achievements"
-        options={{ title: "Awards", tabBarIcon: ({ color }) => <TabIcon name="award" color={color} /> }}
+        // Reached from the Progress screen - keeps the tab bar at six items.
+        options={{ title: "Awards", href: null }}
       />
       <Tabs.Screen
         name="settings"

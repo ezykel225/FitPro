@@ -9,11 +9,22 @@ without a complicated system.
 | Screen | What it does |
 |---|---|
 | **Home** | Welcome message, daily motivational quote, streak, calories today, workout %, quick actions |
-| **Workout** | Push/Pull/Legs/Upper/Full Body plans, tick off exercises, rest timer, log session |
-| **Nutrition** | Add meals with calories/protein/carbs/fats, daily summary vs. goals |
-| **Progress** | Weight log, 7-entry line chart, goal tracking, body stats |
-| **Achievements** | Badges for streaks, workout counts, and meal logging |
+| **Workout** | Mon-Fri PPL plan (Push / Pull / Legs / Push 2 / Pull 2) for 10-20lb dumbbells + bench. Log weight & reps per set, weekly double-progression targets, swap any exercise for an alternative, rest timer |
+| **Run** | Strava-style GPS walk/run tracking: live map, time, distance, pace, per-km splits, calories, activity history |
+| **Nutrition** | Fat-loss targets (~2,550 kcal · 170g protein), 12pm-8pm eating window, one-tap Meal 1 / Meal 2 plan meals, what to eat vs. cut back on, custom meals |
+| **Progress** | Weight log, 7-entry line chart, goal tracking, body stats, link to Awards |
+| **Achievements** | Badges for streaks, workout counts, and meal logging (opened from Progress) |
 | **Settings** | Edit profile & goals, dark mode, notifications toggle, reset all data |
+
+### How the weekly progression works
+
+- **Dumbbell lifts (double progression):** same weight until every set hits the top of the rep range, then level up: heavier dumbbells → slow 3-4s lowering once you're at 20lb → a 4th set → 60s rest instead of 90s.
+- **Push-ups (AMRAP) & bodyweight reps:** beat last session's reps. At 20+ push-ups, go to a narrower grip or add a backpack.
+- **Timed holds:** seconds go up automatically each program week.
+
+## 📲 Install on iPhone (free)
+
+The app is published as a web app on GitHub Pages. Open **https://ezykel225.github.io/FitPro/** in Safari, tap **Share → Add to Home Screen**. Data stays on the phone. For GPS tracking, keep the app open with the screen on - iPhone pauses GPS for web apps in the background.
 
 ## 🧱 Tech Stack
 

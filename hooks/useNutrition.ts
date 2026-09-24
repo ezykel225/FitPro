@@ -4,11 +4,13 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { Meal, NutritionGoals } from "../constants/types";
 import { DEFAULT_NUTRITION_GOALS } from "../constants/data";
+import { PLAN_NUTRITION_GOALS } from "../constants/mealPlan";
 import { getItem, setItem, STORAGE_KEYS } from "../services/storage";
+import { localISO } from "../services/dates";
 
+/** Compares in local time - loggedAt is a UTC timestamp. */
 function isToday(isoTimestamp: string): boolean {
-  const today = new Date().toISOString().split("T")[0];
-  return isoTimestamp.startsWith(today);
+  return localISO(new Date(isoTimestamp)) === localISO();
 }
 
 export interface NewMealInput {
@@ -26,12 +28,21 @@ export function useNutrition() {
 
   useEffect(() => {
     (async () => {
-      const [savedMeals, savedGoals] = await Promise.all([
+      const [savedMeals, savedGoals, planApplied] = await Promise.all([
         getItem<Meal[]>(STORAGE_KEYS.MEALS, []),
         getItem<NutritionGoals>(STORAGE_KEYS.NUTRITION_GOALS, DEFAULT_NUTRITION_GOALS),
+        getItem<boolean>(STORAGE_KEYS.NUTRITION_PLAN_APPLIED, false),
       ]);
+      // Switch to the PPL nutrition plan's targets once. After that, goals
+      // edited in Settings are kept.
+      let nextGoals = savedGoals;
+      if (!planApplied) {
+        nextGoals = PLAN_NUTRITION_GOALS;
+        await setItem(STORAGE_KEYS.NUTRITION_GOALS, nextGoals);
+        await setItem(STORAGE_KEYS.NUTRITION_PLAN_APPLIED, true);
+      }
       setMeals(savedMeals);
-      setGoals(savedGoals);
+      setGoals(nextGoals);
       setLoading(false);
     })();
   }, []);
